@@ -3,6 +3,8 @@ import csv
 
 tempPath = 'temperature-anomaly.csv'
 ghgPath = 'ghg-emissions-by-gas.csv'
+
+#기온
 with open(tempPath, 'r', encoding = 'utf-8') as f:
     data = csv.reader(f, delimiter = ',')
 
@@ -16,11 +18,10 @@ with open(tempPath, 'r', encoding = 'utf-8') as f:
     for row in data:
             
         temp = float(row[3])
-        #current_temp = baseline_temp + temp_anomaly
         averTemp.append(temp)
         years.append(int(row[2]))
 
-
+#온실가스
 with open(ghgPath, 'r', encoding = 'cp949') as f:
     data = csv.reader(f, delimiter = ',')
 
@@ -38,8 +39,7 @@ with open(ghgPath, 'r', encoding = 'cp949') as f:
         nitrous.append(nitrousValue/1000000000)
         methane.append(methaneValue/10000000000)
 
-
-# 그래프 그리기
+#그래프
 plt.figure(figsize=(12, 6))
 plt.rc('font', family='Malgun Gothic')
 plt.plot(averTemp, color='blue', label='평균 기온')
@@ -47,7 +47,6 @@ plt.plot(co2, color='red', label='평균 이산화탄소 농도')
 plt.plot(methane, color='orange', label='평균 메탄 농도')
 plt.plot(nitrous, color='yellow', label='평균 아산화질소 농도')
 plt.title('온실가스 농도에 따른 기온 변화 (상대값)')
-#plt.xticks(years[::10], rotation=45)  # 10년 간격으로 x축 레이블 표시
 plt.grid()
 plt.legend()
 plt.tight_layout()
