@@ -40,7 +40,7 @@ with open(ghgPath, 'r', encoding = 'cp949') as f:
         methane.append(methaneValue/10000000000)
 
 #그래프
-plt.figure(figsize=(12, 6))
+plt.figure(figsize=(12, 8))
 plt.rc('font', family='Malgun Gothic')
 plt.plot(averTemp, color='blue', label='평균 기온 편차')
 plt.plot(co2, color='red', label='평균 이산화탄소 배출량')
@@ -49,5 +49,4 @@ plt.plot(nitrous, color='yellow', label='평균 아산화질소 배출량')
 plt.title('온실가스 농도에 따른 기온 배출량 1850 ~ 2023 (상대값)')
 plt.grid()
 plt.legend()
-plt.tight_layout()
 plt.show()
