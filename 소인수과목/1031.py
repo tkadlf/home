@@ -3,10 +3,12 @@ def getFac(num):
     for i in range(1, num + 1):
         fac *= i
     return fac
+    
 def isEven(num):
     if num % 2 == 0:
         return True
     return False
+    
 def isPrime(num):
     isPrime = True
     for i in range(2, num):
@@ -14,15 +16,18 @@ def isPrime(num):
             isPrime = False
             break
     return isPrime
+    
 def printNum(num):
     if num < 0:
         return
     printNum(num - 1)
     print(num, end = ' ')
+    
 def getFactorial(num):
     if num < 2:
         return 1
     return num * getFactorial(num - 1)
+    
 def fibo(num):
     if num == 1 or num == 2:
         return 1
