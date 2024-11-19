@@ -65,3 +65,13 @@ while True:
     else:
         print("Correct")
         break
+
+
+import datetime as dt
+import time
+
+while True:
+    now = dt.datetime.now()
+
+    print(f"{now.year}년 {now.month}월 {now.day}일 {now.hour}시 {now.minute}분 {now.second}초")
+    time.sleep(1)
