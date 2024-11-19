@@ -1,14 +1,13 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# 함수와 도함수 정의
+# 함수 정의 ==========================================================
 def f(x):
     return x**3 - 3*x**2 + 2
 
 def f_prime(x):
     return 3*x**2 - 6*x
 
-# 뉴턴랩슨법 함수 정의
 def newton_method(x0, tol=1e-6, max_iter=100):
     x_vals = [x0]  # x 값들을 저장할 리스트
     for i in range(max_iter):
@@ -19,11 +18,11 @@ def newton_method(x0, tol=1e-6, max_iter=100):
         x_next = x_vals[-1] - f(x_vals[-1]) / slope
         x_vals.append(x_next)
         
-        # 근에 충분히 가까워지면 종료
         if abs(f(x_next)) < tol:
             break
     return x_vals
 
+# 실행 ===============================================================
 # 초기 추정값
 x0 = 5
 
@@ -33,6 +32,7 @@ x_vals = newton_method(x0)
 x = np.linspace(-10, 10, 1000)
 y = f(x)
 
+# 그래프 시각화 ========================================================
 # 함수의 그래프 그리기
 plt.plot(x, y, label=r'$f(x) = x^3 - 3x^2 + 2$', color='blue')
 
